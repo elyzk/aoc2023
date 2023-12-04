@@ -1,5 +1,4 @@
 import re
-
 f = open("input.txt")
 
 lines = [line.strip() for line in f.readlines()]

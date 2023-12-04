@@ -6,6 +6,9 @@ lines = [line.strip() for line in f.readlines()]
 
 sum = 0
 copies = {}
+for i in range(1, len(lines) + 1):
+    copies[i] = 1
+
 for line in lines:
     cardData = re.split(r':|\|', line)
     card = int(re.search('\\d+', cardData[0]).group())
@@ -17,11 +20,8 @@ for line in lines:
         if candidate in winningNums:
             numWinners += 1
     for i in range(1, numWinners+1):
-        copies[card + i] = copies.get(card, 1) + (copies.get(card + i, 1))
+        copies[card + i] += copies.get(card, 1)
 
-for i in range(len(lines)):
-    if i+1 not in copies:
-        copies[i+1] = 1
 for val in copies.values():
     sum += val
 

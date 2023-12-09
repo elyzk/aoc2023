@@ -21,7 +21,6 @@ for line in lines:
             cur = diffs
             allDiffs.append(diffs)
     for i in range(len(allDiffs)):
-        print(f'Line {lines.index(line)}: {allDiffs[i]}')
         nextNum += allDiffs[i][-1]
     s += nextNum
 
